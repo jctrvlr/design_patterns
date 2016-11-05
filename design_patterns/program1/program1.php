@@ -1,4 +1,5 @@
 <?php
+// Basic car class with make, model, color
 class car {
   private $make;
   private $model;
@@ -26,17 +27,17 @@ class car {
     return $this->getMake() . ' ' . $this->getModel();
   }
 }
-
+// Car factory to more easily make cars
 class carFactory {
   public static function create($make, $model, $color) {
     return new car($make, $model, $color);
   }
 }
-
+// Main decorator class
 class carDecorator {
   protected $car;
   protected $color;
-
+// Set car variable with input object and resetColor
   public function __construct(Car $car_in) {
     $this->car = $car_in;
     $this->resetColor();
@@ -50,10 +51,10 @@ class carDecorator {
     return $this->color;
   }
 }
-
+// Different color specific decorators depending on color
 class redCar extends carDecorator {
   private $cd;
-
+// Call change color in construct to run automatically
   public function __construct(carDecorator $cd_in) {
     $this->cd = $cd_in;
     $this->changeColor();
@@ -90,7 +91,8 @@ class blueCar extends carDecorator {
   }
 
 }
-
+// Strategy which calls the different color specific decorators 
+// based on what is input
 class colorStrat {
   public $strategy = NULL;
 
@@ -111,13 +113,15 @@ class colorStrat {
 
   }
 }
-
-$ourCar = carFactory::create('Ford', 'Fiesta', 'Green');
+// Instantiate a car and the car decorator
+// Sets original color to purple
+$ourCar = carFactory::create('Ford', 'Fiesta', 'purple');
 $decorator = new carDecorator($ourCar);
-
+// Get color from form and feed it into the strategy 
 $color = $_POST["color"];
 $paintedCar = new colorStrat($decorator, $color);
 
+echo '<br>';
 echo 'Your cars color is ' . $decorator->showColor();
 
 
