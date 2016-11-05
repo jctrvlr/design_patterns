@@ -56,9 +56,10 @@ class redCar extends carDecorator {
 
   public function __construct(carDecorator $cd_in) {
     $this->cd = $cd_in;
+    $this->changeColor();
   }
 
-  function red() {
+  function changeColor() {
     $this->cd->color = 'Red';
   }
 }
@@ -68,9 +69,10 @@ class greenCar extends carDecorator {
 
   public function __construct(carDecorator $cd_in) {
     $this->cd = $cd_in;
+    $this->changeColor();
   }
 
-  function green() {
+  function changeColor() {
     $this->cd->color = 'Green';
   }
 }
@@ -80,15 +82,17 @@ class blueCar extends carDecorator {
 
   public function __construct(carDecorator $cd_in) {
     $this->cd = $cd_in;
+    $this->changeColor();
   }
 
-  function blue() {
+  function changeColor() {
     $this->cd->color = 'Blue';
   }
+
 }
 
 class colorStrat {
-  private $strategy = NULL;
+  public $strategy = NULL;
 
   public function __construct(carDecorator $cd_in, $color) {
     switch($color) {
@@ -108,12 +112,10 @@ class colorStrat {
 
 $ourCar = carFactory::create('Ford', 'Fiesta', 'Green');
 $decorator = new carDecorator($ourCar);
+$paintedCar = new colorStrat($decorator, 'red');
 
-$redChoice = new colorStrat($decorator, 'red');
-echo $redChoice->strategy->cd->getColor();
-$greenChoice = new colorStrat($decorator, 'green');
-echo $greenChoice->strategy->cd->getColor();
-$blueChoice = new colorStrat($decorator, 'blue');
-echo $blueChoice->strategy->cd->getColor();
+echo $decorator->showColor();
+
+
 
 ?>
