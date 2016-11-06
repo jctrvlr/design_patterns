@@ -1,4 +1,12 @@
 <?php
+////////////////////////////////////
+// Author: John Cummings          //
+// Combine Observer and singleton //
+// Note: Could not figure out how //
+// to include a third pattern in  //
+// this specific example.         //
+////////////////////////////////////
+
 include 'observer.php';
 // Create singleton class named user 
 class user {
