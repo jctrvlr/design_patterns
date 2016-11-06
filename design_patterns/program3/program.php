@@ -1,5 +1,12 @@
 <?php
-
+//////////////////////////////
+// Author: John Cummings    //
+// Combined strategy,       //
+// factory and decorator to //
+// create a program which   //
+// responds to the user with//
+// a message.               //
+//////////////////////////////
 
 class responseStrat {
   public $strategy = NULL;
@@ -72,9 +79,12 @@ class responseDecorator {
 }
 
 $message = $_POST['message'];
+// First we use the strategy to input the message into the factory
+// We then spit out a response depending on the message
+// We can easily add or remove options because of this implementation
 $response = new responseStrat($message);
 $responseText = $response->getResponse($message);
-
+// The decorator adds a random message to the response
 $decorator = new responseDecorator($responseText);
 echo $decorator->randResponse();
 ?>
