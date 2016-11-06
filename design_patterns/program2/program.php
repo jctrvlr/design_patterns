@@ -6,6 +6,7 @@ class user {
   private static $instance = NULL;
   private static $isLoggedIn = FALSE;
   private static $username;
+  private static $email;
   // Logs in if $isLoggedIn is false and
   // changes it to TRUE. Also returns the instance
   public static function login() {
@@ -31,6 +32,7 @@ class user {
   public function setUsername($username) {
     $this->username = $username;
   }
+  
   protected function __construct() {}
   private function __clone() {}
   private function __wakeup() {}
@@ -82,6 +84,8 @@ $user1->login('User1');
 echo 'User 1 has tried to log in';
 echo BR;
 $username = $user1->getUsername();
+// Using observer to observe that username has chanegd
+// then inside update function of observer it prints username
 $subject->updateFavorites($username);
 echo BR;
 echo BR;

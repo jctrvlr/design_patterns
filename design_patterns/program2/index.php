@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Program 1</title>
+  <title>Program 2</title>
 </head>
 
-<form action="program1.php" method="post">
-  Choose a color for your car: <br>
-  <input type="text" name="color"><br>
+<form action="program.php" method="post">
+  Username: <br>
+  <input type="text" name="user"><br>
   <input type="submit" value="Submit">
 </form>

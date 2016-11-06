@@ -1,4 +1,5 @@
 <?php
+// Abstract subject and observer
 abstract class AbstractSubject {
   abstract function attach(AbstractObserver $observer_in);
   abstract function detach(AbstractObserver $observer_in);
@@ -9,6 +10,8 @@ abstract class AbstractObserver {
   abstract function update(AbstractSubject $subject);
 
 }
+// Create observer with update function which
+// prints out what user is logged in
 class PatternObserver extends AbstractObserver {
   public function __construct() {
 
