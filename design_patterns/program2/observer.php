@@ -1,4 +1,5 @@
 <?php
+// Abstract subject and observer
 abstract class AbstractSubject {
   abstract function attach(AbstractObserver $observer_in);
   abstract function detach(AbstractObserver $observer_in);
@@ -9,6 +10,8 @@ abstract class AbstractObserver {
   abstract function update(AbstractSubject $subject);
 
 }
+// Create observer with update function which
+// prints out what user is logged in
 class PatternObserver extends AbstractObserver {
   public function __construct() {
 
@@ -16,9 +19,9 @@ class PatternObserver extends AbstractObserver {
 
   public function update(Abstractsubject $subject) {
     echo BR.BR;
-    echo '*IN PATTERN OBSERVER - NEW PATTERN GOSSIP ALERT*'.BR;
-    echo ' new favorite patterns: '.$subject->getFavorites().BR;
-    echo '*IN PATTERN OBSERVER - PATTERN GOSSIP ALERT OVER*'.BR;
+    echo '*IN PATTERN OBSERVER - USER LOGGED IN ALERT*'.BR;
+    echo ' User: '.$subject->getFavorites().BR;
+    echo '*IN PATTERN OBSERVER - USER LOGGED IN ALERT OVER*'.BR;
   }
 }
 class PatternSubject extends AbstractSubject {
@@ -61,24 +64,5 @@ class PatternSubject extends AbstractSubject {
 
 define ('BR', '<'.'BR'.'>');
 
-echo 'Test Observer Pattern'.BR;
-echo BR;
-
-$patternGossiper = new PatternSubject();
-$patternGossipFan = new PatternObserver();
-$patternGossiper->attach($patternGossipFan);
-
-$patternGossiper->updateFavorites(
-  'abstract factory, decorator, visitor');
-
-$patternGossiper->updateFavorites(
-  'abstract factory, observer, decorator');
-$patternGossiper->detach($patternGossipFan);
-
-$patternGossiper->updateFavorites(
-  'abstract factory, observer, paisley');
-
-echo BR.BR;
-echo 'END TESTING';
 
 ?>
