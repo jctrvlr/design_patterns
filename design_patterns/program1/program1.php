@@ -1,4 +1,18 @@
 <?php
+////////////////////////////////////////
+//                                    //
+//  @author John Cummings             //
+//                                    //
+//  In this program I used a factory  //
+//  in order to make the car, a       //
+//  decorator in order to change the  //
+//  color of the car, and a strategy  //
+//  in order to choose which decorator//
+//  to use in order to change to the  //
+//  correct color.                    //
+//                                    //
+////////////////////////////////////////
+
 // Basic car class with make, model, color
 class car {
   private $make;
