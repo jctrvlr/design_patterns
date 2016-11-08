@@ -1,6 +1,6 @@
 <?php
 ////////////////////////////////////////
-//                                    //
+//  Program 1                         //
 //  @author John Cummings             //
 //                                    //
 //  In this program I used a factory  //

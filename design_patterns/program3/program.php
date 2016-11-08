@@ -1,6 +1,8 @@
 <?php
 //////////////////////////////
-// Author: John Cummings    //
+// Program 3                //
+// @author John Cummings    //
+//                          //
 // Combined strategy,       //
 // factory and decorator to //
 // create a program which   //

@@ -1,9 +1,15 @@
 <?php
 
+//////////////////////////////
+// Author: John Cummings    //
+// Combined factory,        //
+// decorator, and strategy. //
+// The decorator            //
+
 class employee {
   private $id;
-  private $first_name;
-  private $last_name;
+  public $first_name;
+  public $last_name;
   public $clocked_in = FALSE;
   public $time_in;
   public $time_out;
@@ -44,7 +50,7 @@ class employeeDecorator {
     } else {
       $this->employee->clocked_in = TRUE;
       $this->employee->time_in = date('Y-m-d H:i:s'); 
-      echo 'Clocked in at ' . $this->employee->time_in;
+      echo $this->employee->first_name . ' ' . $this->employee->last_name . ' clocked in at ' . $this->employee->time_in;
     }
   }
   
@@ -54,7 +60,7 @@ class employeeDecorator {
     } else {
       $this->employee->clocked_in = FALSE;
       $this->employee->time_out = date('Y-m-d H:i:s');
-      echo 'Clocked out at ' . $this->employee->time_out;
+      echo $this->employee->first_name . ' ' . $this->employee->last_name . ' clocked out at ' . $this->employee->time_out;
     }
   }  
 }

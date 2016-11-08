@@ -1,10 +1,19 @@
 <?php
 ////////////////////////////////////
-// Author: John Cummings          //
-// Combine Observer and singleton //
+// Program 2                      //
+// @author John Cummings          //
+//                                //
+// Created a user class that is   //
+// a singleton. This means that   //
+// only one user can exist at a   //
+// time. The observer pays        //
+// attention to whether the user- //
+// name of the user changes.      //
+//                                //
 // Note: Could not figure out how //
 // to include a third pattern in  //
 // this specific example.         //
+//                                //
 ////////////////////////////////////
 
 include 'observer.php';
